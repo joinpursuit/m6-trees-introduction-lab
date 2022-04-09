@@ -10,9 +10,8 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data, currentNode = this.root) {
-    return currentNode.data === data ? currentNode : currentNode.children.map((node) => this.findNode(data, node)).find((node) => node) || null
-  }
+  findNode = (data, currentNode = this.root) => currentNode.data === data ? currentNode : currentNode.children.map((node) => this.findNode(data, node)).find((node) => node) || null
+  
 }
 
 module.exports = { TreeNode, Tree };
