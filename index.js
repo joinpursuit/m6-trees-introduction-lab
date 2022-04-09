@@ -11,7 +11,7 @@ class Tree {
   }
 
   findNode(data, currentNode = this.root) {
-    return currentNode.data === data ? currentNode : null
+    return currentNode.data === data ? currentNode : currentNode.children.map((node) => this.findNode(data, node)).find((node) => node) || null
   }
 }
 
