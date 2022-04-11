@@ -10,7 +10,12 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  //return a reference to the root node if it exists
+  findNode(data, node = this.root) {
+    if (node.data === data) {
+      return node;
+    }
+  }
 }
 
 module.exports = { TreeNode, Tree };
