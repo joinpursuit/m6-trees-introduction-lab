@@ -10,7 +10,9 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  findNode() {
+    return this.root;
+  }
 }
 
 module.exports = { TreeNode, Tree };
