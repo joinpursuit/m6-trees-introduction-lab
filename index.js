@@ -27,19 +27,5 @@ class Tree {
   }
 }
 
-const a = new TreeNode("A");
-const b = new TreeNode("B");
-const c = new TreeNode("C");
-const d = new TreeNode("D");
-const e = new TreeNode("E");
-const f = new TreeNode("F");
-const g = new TreeNode("G");
-const h = new TreeNode("H");
-a.children.push(b, c, d);
-b.children.push(e, f, g);
-d.children.push(h);
-treeA = new Tree(a);
-
-console.log(treeA.findNode("B"));
 
 module.exports = { TreeNode, Tree };
