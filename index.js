@@ -20,9 +20,9 @@ class Tree {
             .map((node) => {
               return this.findNode(data, node);
             })
-            .find((i) => {
-              if (i !== null) {
-                return i;
+            .find((node) => {
+              if (node !== null) {
+                return node;
               }
             }) || null
         );
