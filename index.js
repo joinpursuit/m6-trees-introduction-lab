@@ -10,7 +10,23 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  findNode(data) {
+    if (this.root.data === data) {
+      return this.root;
+    }
+
+    // Validating if children exists
+    for (let child of this.root.children) {
+      let newTreeChild = new Tree(child);
+      let node = newTreeChild.findNode(data);
+      //
+      if (node) {
+        return node;
+      }
+    }
+    return null;
+  
+  } 
 }
 
 module.exports = { TreeNode, Tree };
