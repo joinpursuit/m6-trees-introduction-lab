@@ -11,21 +11,28 @@ class Tree {
   }
 
   findNode(data) {
-    if (this.root.data === data) {
-      return this.root;
-    }
+    // should return null if the node does not exist
+    let reference = null;
 
-    // Validating if children exists
-    for (let child of this.root.children) {
-      let newTreeChild = new Tree(child);
-      let node = newTreeChild.findNode(data);
-      //
-      if (node) {
-        return node;
+    // Validating if root exists
+    if (this.root.data === data) {
+      // should return a reference to the root node if it exists
+      reference = this.root;
+    }else{
+      // Validating if children exists
+      for (let child of this.root.children) {
+
+        console.log(child)
+        // let newTreeChild = new Tree(child);
+        // let node = newTreeChild.findNode(data);
+        // //
+        // if (node) {
+        //   reference = node;
+        // }
       }
     }
-    return null;
-  
+    
+    return reference;
   } 
 }
 
