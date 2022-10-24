@@ -9,31 +9,43 @@ class Tree {
   constructor(node) {
     this.root = node;
   }
-
+    /*
+    Treee A:
+          A
+        ┌─┼─┐
+        B C D──┐
+      ┌─┼─┐    │
+      E F G    H
+    */
   findNode(data) {
+    // Tests:
+    // should return a reference to the root node if it exists
+    // should return a reference to an internal node if it exists
+    // should return a reference to a leaf node if it exists
     // should return null if the node does not exist
-    let reference = null;
+    
+    // Createting a new queue
+    let queue = [this.root];
+    // If the queue it's not empty, then iterate over
+    while (queue.length > 0) {
 
-    // Validating if root exists
-    if (this.root.data === data) {
+      // Proceed to extract the first node in the array
+      let node = queue.shift();
       // should return a reference to the root node if it exists
-      reference = this.root;
-    }else{
-      // Validating if children exists
-      for (let child of this.root.children) {
-
-        console.log(child)
-        // let newTreeChild = new Tree(child);
-        // let node = newTreeChild.findNode(data);
-        // //
-        // if (node) {
-        //   reference = node;
-        // }
+      // Validating if the node equals data return node 
+      if (node.data === data) {
+        
+        return node;
+      }
+      // Iterate over the children tree, then proceed to adding them to the queue
+      for (let child of node.children) {
+        queue.push(child);
       }
     }
-    
-    return reference;
-  } 
+    // should return null if the node does not exist
+    return null; 
+  }
+
 }
 
 module.exports = { TreeNode, Tree };
