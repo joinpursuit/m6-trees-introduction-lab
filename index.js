@@ -10,7 +10,22 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  findNode(data) {
+    let currentNode = this.root;
+    let queue = [this.root];
+    while(queue.length){
+      currentNode = queue.shift()
+      if(currentNode.data === data){
+        return currentNode
+      } 
+      if(currentNode.children){
+        for(let child of currentNode.children){
+          queue.push(child)
+        }
+      }
+    }
+return null
+}
 }
 
 module.exports = { TreeNode, Tree };
