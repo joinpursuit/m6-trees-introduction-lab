@@ -10,7 +10,21 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  findNode(data) {
+    const search = (node) => {
+      if (node.data === data) {
+        return node;
+      }
+      for (let child of node.children) {
+        let result = search(child);
+        if(result) {
+          return result;
+        }
+      }
+      return null;
+    }
+    return search(this.root)
+  }
 }
 
 module.exports = { TreeNode, Tree };
