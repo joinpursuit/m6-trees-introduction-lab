@@ -10,7 +10,23 @@ class Tree {
     this.root = node;
   }
 
-  findNode(data) {}
+  findNode(data, currentNode = this.root) {
+    if(currentNode === null){
+      return null;
+    }
+
+    if(currentNode.data === data){
+      return currentNode;
+    }
+
+    for(const child of currentNode.children){
+      const foundNode = this.findNode(data, child);
+      if(foundNode !== null){
+        return foundNode;
+      }
+    }
+    return null;
+  }
 }
 
 module.exports = { TreeNode, Tree };
